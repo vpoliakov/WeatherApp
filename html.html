@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link href="./style.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="reset.css">
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="css.css">
 		<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,500" rel="stylesheet">
 	</head>
@@ -14,8 +14,8 @@
 		<header>
 
 			<div id="title">
-				<h1>Local Weather Six Hour Forecast</h1>
-				<h2>Northern California with doppler radar</h2>
+				<p id="main-title">Local Weather Six Hour Forecast</p>
+				<p id="sub-title">Northern California with doppler radar</p>
 			</div>
 			
 			<div id="search">
@@ -25,10 +25,12 @@
 			</div>
 
 			<div id="current-weather">
-				<img id="current-weather-icon">
-				<p>current</p>
-				<time id="current-time"></time>
-				<p id="current-temp"></p>
+				<div id="current-time-div">
+					<p>current</p>
+					<time id="current-time">12pm</time>
+				</div>
+				<img id="current-weather-icon" src="./weatherDesign/assets/brokencloud.svg">
+				<p id="current-temp">67</p>
 			</div>
 
 			<map id="map"></map>
@@ -38,19 +40,39 @@
 		<main>
 			<div id="next-hours">
 				<div class="hour">
-					<p>Hour 1</p>
+					<p class="main-hour">Hour 1</p>
+					<div class="time-icon-div">
+						<img src="./weatherDesign/assets/brokencloud.svg">
+						<p class="main-temp">67</p>
+					</div>
 				</div>
 				<div class="hour">
-					<p>Hour 2</p>
+					<p class="main-hour">Hour 2</p>
+					<div class="time-icon-div">
+						<img src="./weatherDesign/assets/brokencloud.svg">
+						<p class="main-temp">67</p>
+					</div>
 				</div>
 				<div class="hour">
-					<p>Hour 3</p>
+					<p class="main-hour">Hour 3</p>
+					<div class="time-icon-div">
+						<img src="./weatherDesign/assets/brokencloud.svg">
+						<p class="main-temp">67</p>
+					</div>
 				</div>
 				<div class="hour">
-					<p>Hour 4</p>
+					<p class="main-hour">Hour 4</p>
+					<div class="time-icon-div">
+						<img src="./weatherDesign/assets/brokencloud.svg">
+						<p class="main-temp">67</p>
+					</div>
 				</div>
 				<div class="hour">
-					<p>Hour 5</p>
+					<p class="main-hour">Hour 5</p>
+					<div class="time-icon-div" id="no-border">
+						<img src="./weatherDesign/assets/brokencloud.svg">
+						<p class="main-temp">67</p>
+					</div>
 				</div>
 			</div>
 		</main>
