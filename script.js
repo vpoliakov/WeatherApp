@@ -42,15 +42,19 @@
 			return time;
 		}
 
-		const offset = -7;
+		const utcOffset = -7;
 		const currentTime = document.getElementById('current-time');
+		const currentWeatherIcon = document.getElementById('current-weather-icon');
 		const currentTemp = document.getElementById('current-temp');
 
-		currentTime.textContent = formatTime(data.list[0].dt_txt, offset, true);
-		currentTemp.textContent = data.list[0].main.temp.toFixed(0);
+		currentTime.textContent = formatTime(data.list[0].dt_txt, utcOffset, true);
+		currentWeatherIcon.src = `./assets/${data.list[0].weather[0].description.split(' ').join('')}.svg`;
+		currentTemp.textContent = `${data.list[0].main.temp.toFixed(0)}°`;
 
 		for (const [i, nextHour] of Array.from(document.getElementsByClassName('hour')).entries()) {
-			nextHour.children[0].textContent = formatTime(data.list[i + 1].dt_txt, offset);
+			nextHour.children[0].textContent = formatTime(data.list[i + 1].dt_txt, utcOffset);
+			nextHour.children[1].src = `./assets/${data.list[i + 1].weather[0].description.split(' ').join('')}.svg`;
+			nextHour.children[2].textContent = `${data.list[i + 1].main.temp.toFixed(0)}°`;
 		}
 	}
 
