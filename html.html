@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link href="./style.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="reset.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,500" rel="stylesheet">
@@ -20,7 +19,7 @@
 			
 			<div id="search">
 				<p>Forecast for</p>
-				<input type="text" label="Davis, CA" value="Davis, CA">
+				<input id="searchbar" type="text" label="Davis, CA" value="Davis, CA">
 				<button>submit</button>
 			</div>
 
@@ -31,7 +30,11 @@
 				<p id="current-temp"></p>
 			</div>
 
-			<map id="map"></map>
+			<map id="map">
+				<img src="http://radar.weather.gov/ridge/Overlays/Topo/Short/DAX_Topo_Short.jpg">
+				<div id="radars"></div>
+				<img src="http://radar.weather.gov/ridge/Overlays/Cities/Short/DAX_City_Short.gif">
+			</map>
 
 		</header>
 
