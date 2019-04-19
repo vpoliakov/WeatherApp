@@ -35,15 +35,13 @@
 		function formatTime(date, utcOffset = 0, compress = false) {
 			let hour = Number(date.split(' ')[1].split(':')[0]) + utcOffset;
 			if (hour < 0) hour += 24;
-			let time = '';
+			const ampm = hour < 12 ? 'am' : 'pm';
 
 			if (compress) {
-				time = hour > 11 ? `${hour - 12}PM`: `${hour}AM`;
+				return `${hour > 12 ? hour - 12 : hour}${ampm.toUpperCase()}`;
 			} else {
-				time = hour > 11 ? `${hour - 12}:00 pm`: `${hour}:00 am`;
+				return `${hour > 12 ? hour - 12 : hour}:00 ${ampm}`;
 			}
-
-			return time;
 		}
 
 		function getImagePath(index, utcOffset = 0) {
@@ -51,7 +49,7 @@
 			if (hour < 0) hour += 24;
 			
 			let name = data.list[index].weather[0].description.split(' ').join('');
-			if (hour < 6 || hour > 20 && ['clearsky', 'fewclouds', 'lightrain', 'rain'].includes(name)) {
+			if ((hour < 6 || hour > 20) && ['clearsky', 'fewclouds', 'lightrain', 'rain'].includes(name)) {
 				name = name + '-night';
 			}
 			return `./assets/${name}.svg`;
