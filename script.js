@@ -2,7 +2,6 @@
 
 (function() {
 	function makeCorsRequest(callback, city, state = 'CA') {
-		// Creates the XHR object.
 		function createCORSRequest(command, url) {
 			const xhr = new XMLHttpRequest();
 			xhr.open(command, url, true);
@@ -36,6 +35,7 @@
 			let hour = Number(date.split(' ')[1].split(':')[0]) + utcOffset;
 			if (hour < 0) hour += 24;
 			const ampm = hour < 12 ? 'am' : 'pm';
+			if (hour == 0) hour = 12;
 
 			if (compress) {
 				return `${hour > 12 ? hour - 12 : hour}${ampm.toUpperCase()}`;
@@ -102,15 +102,15 @@
 				image.style.position = 'absolute';
 				images.push(image);
 
-				console.log(images.length);
 				if (images.length == num) callback();
 			}
 		}
 
 		const date = new Date();
+		date.setMinutes(date.getMinutes() - 3); // bad hack
 		for (let i = num * 7; i >= 0; i--) {
 			image = tryToGetImage(date);
-			date.setMinutes(date.getMinutes() - 1); // back in time one minute
+			date.setMinutes(date.getMinutes() - 1);
 		}
 		return images;
 	}
@@ -118,7 +118,6 @@
 	const radars = document.getElementById('map-radars');
 	const images = [];
 	getImages(10, images, function () {
-		console.log('callback');
 		images.sort(function (a, b) { return a.src.localeCompare(b.src); });
 		images.forEach(function (image, index) {
 			image.id = `doppler_${index}`;
