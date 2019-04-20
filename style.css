@@ -22,6 +22,34 @@
 	border: none;
 }
 
+#current-temp {
+	font-size: var(--temp-header);
+	margin-top: calc(var(--marginHor) / 2);
+}
+
+#current-time-div {
+	display: flex;
+	flex-direction: column;
+	font-size: var(--time-header);
+	margin-left: calc(var(--marginHor) / 2);
+	margin-right: calc(var(--marginHor) / 2);
+	margin-top: calc(var(--marginHor) / 2);
+}
+
+#current-weather {
+	color: white;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-family: "Saira Extra Condensed Light";
+}
+
+#current-weather-icon {
+	height: 100px;
+	margin-right: calc(var(--marginHor) / 2);
+	margin-top: calc(var(--marginHor) / 2);
+}
+
 header {
 	background: linear-gradient(var(--lightBlue), var(--darkBlue));
 	box-shadow: 0 20px 50px #8c8c8c;
@@ -35,7 +63,11 @@ header * {
 
 .hour {
 	flex-basis: 100%;
-	border-right: 2px solid LightGray;
+}
+
+.hour img {
+	margin-bottom: calc(var(--marginVert) / 3);
+	margin-top: calc(var(--marginVert) / 2);
 }
 
 .hour:nth-child(5) {
@@ -45,43 +77,75 @@ header * {
 #next-hours {
 	align-content: center;
 	display: flex;
+	font-family: "Saira Extra Condensed Light";
 	height: 5em;
 	justify-content: center;
 	text-align: center;
 	width: auto;
 }
 
-#title h1 {
+main {
+	margin-top: calc(var(--marginVert) / 2);
+}
+
+.main-hour {
+	font-size: var(--time-main);
+}
+
+.main-temp {
+	font-size: var(--temp-main);
+}
+
+#main-title {
 	color: white;
-	line-height: var(--header);
+	font-size: var(--header);
 }
 
-#title h2 {
+#no-border {
+	border: none;
+}
+
+.time-icon-div {
+	border-right: 2px solid LightGray;
+	margin-bottom: 15px;
+}
+
+.time-icon-div img {
+	width: 180px;
+}
+
+#sub-title {
 	color: var(--darkerBlue);
-	line-height: var(--subheader);
+	font-size: var(--subheader);
 }
 
+#search {
+	align-items: baseline;
+	display: flex;
+	flex-direction: row;
+}
 #search * {
 	color: white;
-	display: inline;
+	margin-top: calc(var(--marginHor) / 2);
 }
 
 #search button {
 	background-color: var(--lighterBlue);
-	line-height: var(--submit);
-	padding: 0.15em;
+	font-size: var(--submit);
+	padding: 0.2em 20px;
 }
 
 #search input {
 	background-color: #2c007f;
 	color: white;
 	font-family: "IBM Plex Sans Light";
-	line-height: var(--search);
-	margin: 0 5px;
+	font-size: var(--search);
+	margin: 0 10px 0 15px;
 	padding: 0.05em;
 	text-indent: 20px;
+	width: 350px;
 }
 
 #search p {
-	line-height: var(--forecast);
+	font-size: var(--forecast);
 }

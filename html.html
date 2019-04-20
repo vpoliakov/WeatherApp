@@ -3,8 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<link href="./style.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href="style.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:300" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,500" rel="stylesheet">
 	</head>
@@ -13,8 +12,8 @@
 		<header>
 
 			<div id="title">
-				<h1>Local Weather Six Hour Forecast</h1>
-				<h2>Northern California with doppler radar</h2>
+				<p id="main-title">Local Weather Six Hour Forecast</p>
+				<p id="sub-title">Northern California with doppler radar</p>
 			</div>
 			
 			<div id="search">
@@ -24,10 +23,12 @@
 			</div>
 
 			<div id="current-weather">
-				<img id="current-weather-icon">
-				<p>current</p>
-				<time id="current-time"></time>
-				<p id="current-temp"></p>
+				<div id="current-time-div">
+					<p>current</p>
+					<time id="current-time">12pm</time>
+				</div>
+				<img id="current-weather-icon" src="./weatherDesign/assets/brokencloud.svg">
+				<p id="current-temp">67</p>
 			</div>
 
 			<map id="map">
@@ -40,30 +41,30 @@
 
 		<main>
 			<div id="next-hours">
-				<div class="hour">
-					<p></p>
-					<img>
-					<p></p>
+				<div class="next-hour">
+					<p class="next-hour-time"></p>
+					<img class="next-hour-icon">
+					<p class="next-hour-temp"></p>
 				</div>
-				<div class="hour">
-					<p></p>
-					<img>
-					<p></p>
+				<div class="next-hour">
+					<p class="next-hour-time"></p>
+					<img class="next-hour-icon">
+					<p class="next-hour-temp"></p>
 				</div>
-				<div class="hour">
-					<p></p>
-					<img>
-					<p></p>
+				<div class="next-hour">
+					<p class="next-hour-time"></p>
+					<img class="next-hour-icon">
+					<p class="next-hour-temp"></p>
 				</div>
-				<div class="hour">
-					<p></p>
-					<img>
-					<p></p>
+				<div class="next-hour">
+					<p class="next-hour-time"></p>
+					<img class="next-hour-icon">
+					<p class="next-hour-temp"></p>
 				</div>
-				<div class="hour">
-					<p></p>
-					<img>
-					<p></p>
+				<div class="next-hour">
+					<p class="next-hour-time"></p>
+					<img class="next-hour-icon">
+					<p class="next-hour-temp"></p>
 				</div>
 			</div>
 		</main>
