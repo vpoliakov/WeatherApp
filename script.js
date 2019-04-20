@@ -86,7 +86,7 @@
 	makeCorsRequest(renderWeather, city);
 
 	function getImages(num, images, callback) {
-		const radars = document.getElementById('radars');
+		const radars = document.getElementById('map-radars');
 	
 		function tryToGetImage(date) {
 			const year = date.getUTCFullYear();
