@@ -85,8 +85,7 @@
 	const city = 'Davis';
 	makeCorsRequest(renderWeather, city);
 
-	function getImages(num) {
-		const images = [];
+	function getImages(num, images, callback) {
 		const radars = document.getElementById('radars');
 	
 		function tryToGetImage(date) {
@@ -99,23 +98,30 @@
 			const image = new Image();
 			image.src = `http://radar.weather.gov/ridge/RadarImg/N0R/DAX/DAX_${year}${month}${day}_${hour}${minute}_N0R.gif`;
 			image.onload = function () {
-				image.id = `doppler_${images.length}`;
 				image.style.display = 'none';
 				image.style.position = 'absolute';
 				images.push(image);
-				radars.appendChild(image);
+
+				console.log(images.length);
+				if (images.length == num) callback();
 			}
 		}
 	
 		const date = new Date();
-
 		for (let i = num * 7; i >= 0; i--) {
 			image = tryToGetImage(date);
 			date.setMinutes(date.getMinutes() - 1); // back in time one minute
 		}
-
 		return images;
 	}
 	
-	getImages(10);
+	const images = [];
+	getImages(10, images, function () {
+		console.log('callback');
+		images.sort(function (a, b) { return a.src.localeCompare(b.src); });
+		images.forEach(function (image, index) {
+			image.id = `doppler_${index}`;
+			radars.appendChild(image);
+		})
+	});
 })();
