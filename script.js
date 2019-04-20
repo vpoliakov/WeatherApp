@@ -88,7 +88,7 @@
 	makeCorsRequest(renderWeather, 'Davis');
 
 	function getImages(num, images, callback) {	
-		function tryToGetImage(date) {
+		function tryToGetImage(date, reqNum) {
 			const year = date.getUTCFullYear();
 			const month = String(date.getUTCMonth() + 1).padStart(2, '0');
 			const day = String(date.getUTCDate()).padStart(2, '0');
@@ -102,15 +102,18 @@
 				image.style.position = 'absolute';
 				images.push(image);
 
-				if (images.length == num) callback();
+				console.log(images.length);
+				if (images.length == num || reqNum == 0) callback();
 			}
 		}
 
+		const requestDivisor = 7; // every 7 requests return an image
 		const date = new Date();
-		date.setMinutes(date.getMinutes() - 3); // bad hack
-		for (let i = num * 7; i >= 0; i--) {
-			image = tryToGetImage(date);
-			date.setMinutes(date.getMinutes() - 1);
+
+		date.setMinutes(date.getMinutes() - 3);
+		for (let i = num * requestDivisor; i >= 0; i--) {
+			image = tryToGetImage(date, i);
+			date.setMinutes(date.getMinutes() - 1); // back in time one minute
 		}
 		return images;
 	}
@@ -118,10 +121,27 @@
 	const radars = document.getElementById('map-radars');
 	const images = [];
 	getImages(10, images, function () {
+		console.log('callback');
 		images.sort(function (a, b) { return a.src.localeCompare(b.src); });
 		images.forEach(function (image, index) {
 			image.id = `doppler_${index}`;
 			radars.appendChild(image);
 		})
 	});
+
+	function animateRadars () {
+
+		for (let i = 0; i < radars.length; i++) {
+			setInterval(function(){ 
+				radars[i].style.display = 'inline';
+				if (i != 0) {
+					radars[i - 1].style.display = 'none';
+				} else {
+					radars[radars.length - 1].display = 'none';
+				}
+			}, 500);
+		}
+	}
+
+	animateRadars();
 })();
