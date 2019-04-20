@@ -88,7 +88,7 @@
 	makeCorsRequest(renderWeather, 'Davis');
 
 	function getImages(num, images, callback) {	
-		function tryToGetImage(date, reqNum) {
+		function tryToGetImage(date) {
 			const year = date.getUTCFullYear();
 			const month = String(date.getUTCMonth() + 1).padStart(2, '0');
 			const day = String(date.getUTCDate()).padStart(2, '0');
@@ -98,22 +98,23 @@
 			const image = new Image();
 			image.src = `http://radar.weather.gov/ridge/RadarImg/N0R/DAX/DAX_${year}${month}${day}_${hour}${minute}_N0R.gif`;
 			image.onload = function () {
-				image.style.display = 'none';
+				image.style.display = images.length == 0 ? 'initial' : 'none';
 				image.style.position = 'absolute';
 				images.push(image);
-
-				console.log(images.length);
-				if (images.length == num || reqNum == 0) callback();
+				if (images.length == num) {
+					images[0].style.display = 'none';
+					callback();	
+				}
 			}
 		}
 
-		const requestDivisor = 7; // every 7 requests return an image
+		const requestDivisor = 7; // only 1 in 7 requests is successful
 		const date = new Date();
 
-		date.setMinutes(date.getMinutes() - 3);
+		date.setMinutes(date.getMinutes() - 3); // images from the last 3 min are never available
 		for (let i = num * requestDivisor; i >= 0; i--) {
 			image = tryToGetImage(date, i);
-			date.setMinutes(date.getMinutes() - 1); // back in time one minute
+			date.setMinutes(date.getMinutes() - 1);
 		}
 		return images;
 	}
@@ -121,29 +122,24 @@
 	const radars = document.getElementById('map-radars');
 	const images = [];
 	getImages(10, images, function () {
-		console.log('callback');
 		images.sort(function (a, b) { return a.src.localeCompare(b.src); });
 		images.forEach(function (image, index) {
 			image.id = `doppler_${index}`;
 			radars.appendChild(image);
-		})
+		});
+
+		(function animateRadars() {
+			const len = images.length;
+			let i = 1;
+	
+			setInterval(function () {
+				const image = images[i % len];
+				const lastImage = images[(i - 1) % len];
+				
+				image.style.display = 'initial';
+				lastImage.style.display = 'none';
+				i++;
+			}, 200);
+		})();
 	});
-
-	function animateRadars () {
-		let i = 0;
-		setInterval(function() { 
-			radarsChildren[i].style.display = 'inline';
-			if (i != 0) {
-				radarsChildren[i - 1].style.display = 'none';
-			} else {
-				radarsChildren[radarsChildren.length - 1].display = 'none';
-			}
-
-			if (i < radarsChildren.length - 1) i++;
-			else i = 0;
-		}, 1000);
-	}
-
-	const radarsChildren = document.getElementById('map-radars').children;
-	animateRadars();
 })();

@@ -32,8 +32,6 @@ body {
 }
 
 #current-time-div {
-	display: flex;
-	flex-direction: column;
 	font-size: var(--time-header);
 }
 
