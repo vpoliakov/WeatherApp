@@ -130,18 +130,20 @@
 	});
 
 	function animateRadars () {
+		let i = 0;
+		setInterval(function() { 
+			radarsChildren[i].style.display = 'inline';
+			if (i != 0) {
+				radarsChildren[i - 1].style.display = 'none';
+			} else {
+				radarsChildren[radarsChildren.length - 1].display = 'none';
+			}
 
-		for (let i = 0; i < radars.length; i++) {
-			setInterval(function(){ 
-				radars[i].style.display = 'inline';
-				if (i != 0) {
-					radars[i - 1].style.display = 'none';
-				} else {
-					radars[radars.length - 1].display = 'none';
-				}
-			}, 500);
-		}
+			if (i < radarsChildren.length - 1) i++;
+			else i = 0;
+		}, 1000);
 	}
 
+	const radarsChildren = document.getElementById('map-radars').children;
 	animateRadars();
 })();
