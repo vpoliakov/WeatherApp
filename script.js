@@ -64,7 +64,7 @@
 		currentWeatherIcon.src = getImagePath(0, utcOffset);
 		currentTemp.textContent = `${data.list[0].main.temp.toFixed(0)}°`;
 
-		for (const [i, nextHour] of Array.from(document.getElementsByClassName('hour')).entries()) {
+		for (const [i, nextHour] of Array.from(document.getElementsByClassName('next-hour')).entries()) {
 			nextHour.children[0].textContent = formatTime(data.list[i + 1].dt_txt, utcOffset);
 			nextHour.children[1].src = getImagePath(i + 1, utcOffset);
 			nextHour.children[2].textContent = `${data.list[i + 1].main.temp.toFixed(0)}°`;
