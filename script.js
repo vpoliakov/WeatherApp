@@ -45,7 +45,7 @@
 		}
 
 		function getImagePath(index, utcOffset = 0) {
-			let hour = Number(data.list[0].dt_txt.split(' ')[1].split(':')[0]) + utcOffset;
+			let hour = Number(data.list[index].dt_txt.split(' ')[1].split(':')[0]) + utcOffset;
 			if (hour < 0) hour += 24;
 			
 			let name = data.list[index].weather[0].description.split(' ').join('');
@@ -71,23 +71,23 @@
 		}
 	}
 
-	const searchbar = document.getElementById('searchbar');
-	searchbar.onkeyup = function () {
+	function search() {
 		const [city, state] = searchbar.value.split(',', 2).map(x => x.trim());
-		
+
 		try {
 			makeCorsRequest(renderWeather, city, state);
 		} catch (error) {
 			alert(error);
 		}
-	};
+	}
 
-	const city = 'Davis';
-	makeCorsRequest(renderWeather, city);
+	document.getElementById('submit-button').addEventListener('click', search);
+	document.getElementById('searchbar').addEventListener('keyup', function (event) {
+		if (event.keyCode == 13) search(); // search on enter
+	});
+	makeCorsRequest(renderWeather, 'Davis');
 
-	function getImages(num, images, callback) {
-		const radars = document.getElementById('map-radars');
-	
+	function getImages(num, images, callback) {	
 		function tryToGetImage(date) {
 			const year = date.getUTCFullYear();
 			const month = String(date.getUTCMonth() + 1).padStart(2, '0');
@@ -106,7 +106,7 @@
 				if (images.length == num) callback();
 			}
 		}
-	
+
 		const date = new Date();
 		for (let i = num * 7; i >= 0; i--) {
 			image = tryToGetImage(date);
@@ -114,7 +114,8 @@
 		}
 		return images;
 	}
-	
+
+	const radars = document.getElementById('map-radars');
 	const images = [];
 	getImages(10, images, function () {
 		console.log('callback');

@@ -3,8 +3,8 @@
     --darkerBlue: #2c007f;
     --lightBlue: rgb(73, 138, 220);
     --lighterBlue: #b0a0ff;
-    --marginHor: 60px;
-    --marginVert: 60px;
+    --marginHor: 150px;
+    --marginVert: 120px;
     --header: 45pt;
     --subheader: 33pt;
     --forecast: 22pt;
@@ -25,20 +25,17 @@
 body {
 	display: flex;
 	flex-direction: column;
+	height: 100vh;
 }
 
 #current-temp {
 	font-size: var(--temp-header);
-	margin-top: calc(var(--marginHor) / 2);
 }
 
 #current-time-div {
 	display: flex;
 	flex-direction: column;
 	font-size: var(--time-header);
-	margin-left: calc(var(--marginHor) / 2);
-	margin-right: calc(var(--marginHor) / 2);
-	margin-top: calc(var(--marginHor) / 2);
 }
 
 #current-weather {
@@ -51,9 +48,6 @@ body {
 }
 
 #current-weather-icon {
-	height: 100px;
-	margin-right: calc(var(--marginHor) / 2);
-	margin-top: calc(var(--marginHor) / 2);
 }
 
 header {
@@ -61,12 +55,19 @@ header {
 	box-shadow: 0 20px 50px #8c8c8c;
 	font-family: "IBM Plex Sans";
 	font-weight: 500;
+	height: -webkit-fill-available;
 	padding: var(--marginVert) var(--marginHor);
 	width: auto;
 }
 
 .next-hour {
+	display: flex;
+	font-family: "Saira Extra Condensed";
+	font-weight: 300;
 	flex-basis: 100%;
+	flex-direction: column;
+	justify-content: space-evenly;
+	text-align: center;
 }
 
 .next-hour-icon {
@@ -80,10 +81,6 @@ header {
 #next-hours {
 	align-content: center;
 	display: flex;
-	font-family: "Saira Extra Condensed";
-	font-weight: 300;
-	justify-content: center;
-	text-align: center;
 	width: auto;
 }
 
@@ -95,10 +92,6 @@ header {
 	font-size: var(--time-main);
 }
 
-main {
-	margin-top: calc(var(--marginVert) / 2);
-}
-
 #main-title {
 	color: white;
 	font-size: var(--header);
@@ -108,6 +101,7 @@ main {
 #map-cities,
 #map-radars {
 	position: absolute;
+	display: none;
 }
 
 #no-border {
