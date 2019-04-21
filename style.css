@@ -4,16 +4,16 @@
     --lightBlue: rgb(73, 138, 220);
     --lighterBlue: rgb(127, 136, 203);
     --marginHor: 150px;
-    --marginVert: 120px;
-    --header: 45pt;
-    --subheader: 33pt;
-    --forecast: 22pt;
-    --search: 20pt;
+    --marginVert: 90px;
+    --header-font: 45pt;
+    --subheader-font: 33pt;
+    --forecast-font: 22pt;
+    --search-font: 20pt;
     --submit: 16pt;
-    --time-header: 35pt;
-    --temp-header: 85pt;
-    --time-main: 25pt;
-    --temp-main: 75pt;
+    --time-header-font: 35pt;
+    --temp-header-font: 85pt;
+    --time-main-font: 25pt;
+    --temp-main-font: 75pt;
 }
 
 * {
@@ -22,29 +22,34 @@
 	border: none;
 }
 
-.black-border {
-	background-color: black;
-    flex: 1px 0 0;
-    height: var(--temp-header);
-    margin: 50px 30px 30px 30px;
-}
 body {
 	display: flex;
 	flex-direction: column;
 }
 
 #current-temp {
-	font-size: var(--temp-header);
+	font-size: var(--temp-header-font);
+	width: 100px;
 }
 
 #current-time-div {
-	font-size: var(--time-header);
+	font-size: var(--time-header-font);
+	width: 100px;
 }
 
-#cur-time-temp-div {
+#current-time-temp-div {
+	align-items: center;
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	justify-content: space-evenly;
+	text-align: center;
+    width: 80%;
+}
+
+.current-time-temp-border {
+	background-color: black;
+    flex: 1px 0 0;
+    height: var(--temp-header-font);
 }
 
 #current-weather {
@@ -55,32 +60,52 @@ body {
 	font-family: "Saira Extra Condensed";
 	font-weight: 300;
 	justify-content: space-evenly;
-	margin: 50px 0;
-	width: 45%;
+	width: 100%;
 }
 
 #current-weather-icon {
-	height: 250px;
-	margin-bottom: 30px;
-	width: 600px;
+	height: 40%;
+}
+
+#forecast-for {
+	font-family: "IBM Plex Sans";
+	font-size: var(--forecast-font);
+	color: white;
+	line-height: calc(var(--forecast-font) * 2);
 }
 
 header {
+	align-items: center;
 	background: linear-gradient(var(--lightBlue), var(--darkBlue));
+	box-sizing: border-box;
 	box-shadow: 0 50px 50px rgb(159, 159, 159);
-	flex: 60% 1 1;
+	display: flex;
+	height: 100vh;
+    flex-direction: column;
 	font-family: "IBM Plex Sans";
 	font-weight: 500;
-	padding: var(--marginVert) 10%;
+	padding: var(--marginVert) 10% 0 10%;
 	width: auto;
 }
 
+#header-bottom-area {
+	display: flex;
+	justify-content: center;
+	max-height: 70%;
+}
+
+#header-mid-bottom-area {
+	max-height: 70%;
+	width: 100%;
+}
+
 .next-hour {
+	align-items: center;
 	display: flex;
 	font-family: "Saira Extra Condensed";
 	font-weight: 300;
 	flex-basis: 100%;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: space-evenly;
 	text-align: center;
 }
@@ -88,25 +113,26 @@ header {
 .next-hour-border {
 	background-color: rgb(191, 191, 191);
     flex: 1px 0 0;
-    margin: 50px 0 30px 0;
 }
 
 .next-hour-icon {
-	height: 20%;
+	height: 70%;
 }
 
 #next-hours {
 	align-content: center;
 	display: flex;
+	height: 100vh;
+	flex-direction: column;
 	width: auto;
 }
 
 .next-hour-temp {
-	font-size: var(--temp-main);
+	font-size: var(--temp-main-font);
 }
 
 .next-hour-time {
-	font-size: var(--time-main);
+	font-size: var(--time-main-font);
 }
 
 main {
@@ -115,16 +141,12 @@ main {
 
 #main-title {
 	color: white;
-	font-size: var(--header);
-}
-
-#map {
-	display: inline;
+	font-size: calc(10vw - 4pt);
 }
 
 #map {
 	clip-path: circle(40%);
-	display: inline;
+	display: none;
 	height: 550px;
 	width: 600px;
 }
@@ -135,29 +157,20 @@ main {
 	position: absolute;
 }
 
-#sub-title {
-	color: var(--darkerBlue);
-	font-size: var(--subheader);
-	line-height: calc(var(--subheader) * 2);
-}
-
 #search {
-	align-items: center;
-	color: white;
 	display: flex;
-	flex-direction: row;
+	font-size: var(--forecast-font);
 }
 
 #searchbar {
 	background-color: var(--darkerBlue);
 	color: white;
 	font-family: "IBM Plex Sans";
-	font-size: var(--search);
+	font-size: var(--search-font);
 	font-weight: 300;
-	margin: 0 20px;
-	padding: 0.05em;
+	min-width: 0;
 	text-indent: 20px;
-	width: 350px;
+	width: -webkit-fill-available;
 }
 
 #submit-button {
@@ -175,10 +188,12 @@ main {
 	background-color: var(--darkerBlue);
 }
 
-#search p {
-	font-size: var(--forecast);
+#sub-title {
+	color: var(--darkerBlue);
+	font-size: 4vw;
+	line-height: 8vw;
 }
 
-#weather-map {
-	display: flex;
+#title {
+	text-align: center;
 }

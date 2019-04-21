@@ -17,28 +17,30 @@
 				<p id="sub-title">Northern California with doppler radar</p>
 			</div>
 			
-			<div id="search">
-				<p>Forecast for</p>
-				<input id="searchbar" type="text" label="Davis, CA" value="Davis, CA">
-				<button id="submit-button">submit</button>
-			</div>
-			<div id="weather-map">
-				<div id="current-weather">
-					<img id="current-weather-icon">
-					<div id="cur-time-temp-div">
-						<div id="current-time-div">
-							<p>current</p>
-							<time id="current-time"></time>
-						</div>
-						<div class="black-border"></div>
-						<p id="current-temp"></p>
-					</div>
+			<div id="header-mid-bottom-area">
+				<p id="forecast-for">Forecast for</p>
+				<div id="search">
+					<input id="searchbar" type="text" label="Davis, CA" value="Davis, CA">
+					<button id="submit-button">submit</button>
 				</div>
+				<div id="header-bottom-area">
+					<div id="current-weather">
+						<img id="current-weather-icon">
+						<div id="current-time-temp-div">
+							<div id="current-time-div">
+								<p>current</p>
+								<time id="current-time"></time>
+							</div>
+							<div class="current-time-temp-border"></div>
+							<p id="current-temp"></p>
+						</div>
+					</div>
 
-				<div id="map">
-					<img id="map-background" src="http://radar.weather.gov/ridge/Overlays/Topo/Short/DAX_Topo_Short.jpg">
-					<div id="map-radars"></div>
-					<img id="map-cities" src="http://radar.weather.gov/ridge/Overlays/Cities/Short/DAX_City_Short.gif">
+					<div id="map">
+						<img id="map-background" src="http://radar.weather.gov/ridge/Overlays/Topo/Short/DAX_Topo_Short.jpg">
+						<div id="map-radars"></div>
+						<img id="map-cities" src="http://radar.weather.gov/ridge/Overlays/Cities/Short/DAX_City_Short.gif">
+					</div>
 				</div>
 			</div>
 
