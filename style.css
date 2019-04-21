@@ -53,7 +53,7 @@ header {
 	flex: 60% 1 1;
 	font-family: "IBM Plex Sans";
 	font-weight: 500;
-	padding: var(--marginVert) var(--marginHor);
+	padding: var(--marginVert) 2%;
 	width: auto;
 }
 
@@ -98,6 +98,17 @@ main {
 #main-title {
 	color: white;
 	font-size: var(--header);
+}
+
+#map {
+	display: inline;
+}
+
+#map * {
+	clip-path: circle(40%);
+	display: inline;
+	height: 500px;
+	width: 500px;
 }
 
 #map-background,
@@ -148,4 +159,8 @@ main {
 
 #search p {
 	font-size: var(--forecast);
+}
+
+#weather-map {
+	display: flex;
 }
