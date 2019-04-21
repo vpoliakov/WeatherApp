@@ -22,6 +22,12 @@
 	border: none;
 }
 
+#arrow-down {
+	align-self: center;
+	margin-top: 2vh;
+	width: fit-content;
+}
+
 body {
 	display: flex;
 	flex-direction: column;
@@ -43,13 +49,13 @@ body {
 	flex-direction: row;
 	justify-content: space-evenly;
 	text-align: center;
-    width: 80%;
 }
 
 .current-time-temp-border {
 	background-color: black;
     flex: 1px 0 0;
-    height: var(--temp-header-font);
+	height: 100%;
+	margin: 0 20px;
 }
 
 #current-weather {
@@ -60,11 +66,11 @@ body {
 	font-family: "Saira Extra Condensed";
 	font-weight: 300;
 	justify-content: space-evenly;
-	width: 100%;
+	height: -webkit-fill-available;
 }
 
 #current-weather-icon {
-	height: 40%;
+	width: 80%;
 }
 
 #forecast-for {
@@ -84,18 +90,20 @@ header {
     flex-direction: column;
 	font-family: "IBM Plex Sans";
 	font-weight: 500;
-	padding: var(--marginVert) 10% 0 10%;
+	overflow: hidden;
+	padding: 8vh 5vw 3vh 5vw;
 	width: auto;
 }
 
 #header-bottom-area {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	max-height: 70%;
 }
 
 #header-mid-bottom-area {
-	max-height: 70%;
+	display: flex;
+    flex-direction: column;
 	width: 100%;
 }
 
@@ -122,8 +130,8 @@ header {
 #next-hours {
 	align-content: center;
 	display: flex;
-	height: 100vh;
 	flex-direction: column;
+	height: 100%;
 	width: auto;
 }
 
@@ -136,7 +144,10 @@ header {
 }
 
 main {
+	display: flex;
 	flex: auto 1 1;
+    flex-direction: column;
+	height: 100vh;
 }
 
 #main-title {
@@ -190,7 +201,7 @@ main {
 
 #sub-title {
 	color: var(--darkerBlue);
-	font-size: 4vw;
+	font-size: 4.5vw;
 	line-height: 8vw;
 }
 
