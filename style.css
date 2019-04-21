@@ -22,6 +22,12 @@
 	border: none;
 }
 
+.black-border {
+	background-color: black;
+    flex: 1px 0 0;
+    height: var(--temp-header);
+    margin: 50px 30px 30px 30px;
+}
 body {
 	display: flex;
 	flex-direction: column;
@@ -35,16 +41,28 @@ body {
 	font-size: var(--time-header);
 }
 
+#cur-time-temp-div {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
 #current-weather {
 	align-items: center;
 	color: white;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	font-family: "Saira Extra Condensed";
 	font-weight: 300;
 	justify-content: space-evenly;
 	margin: 50px 0;
 	width: 45%;
+}
+
+#current-weather-icon {
+	height: 250px;
+	margin-bottom: 30px;
+	width: 600px;
 }
 
 header {
@@ -53,7 +71,7 @@ header {
 	flex: 60% 1 1;
 	font-family: "IBM Plex Sans";
 	font-weight: 500;
-	padding: var(--marginVert) 2%;
+	padding: var(--marginVert) 10%;
 	width: auto;
 }
 
@@ -104,11 +122,11 @@ main {
 	display: inline;
 }
 
-#map * {
+#map {
 	clip-path: circle(40%);
 	display: inline;
-	height: 500px;
-	width: 500px;
+	height: 550px;
+	width: 600px;
 }
 
 #map-background,
