@@ -71,6 +71,8 @@
 		}
 	}
 
+	const searchbar = document.getElementById('searchbar');
+
 	function search() {
 		const [city, state] = searchbar.value.split(',', 2).map(x => x.trim());
 
@@ -87,7 +89,7 @@
 	});
 	makeCorsRequest(renderWeather, 'Davis');
 
-	function getImages(num, images, callback) {	
+	function getImages(num, images, callback) {
 		function tryToGetImage(date) {
 			const year = date.getUTCFullYear();
 			const month = String(date.getUTCMonth() + 1).padStart(2, '0');
@@ -98,6 +100,7 @@
 			const image = new Image();
 			image.src = `http://radar.weather.gov/ridge/RadarImg/N0R/DAX/DAX_${year}${month}${day}_${hour}${minute}_N0R.gif`;
 			image.onload = function () {
+				if (images.length > num) return;
 				image.style.display = images.length == 0 ? 'initial' : 'none';
 				image.style.position = 'absolute';
 				images.push(image);
@@ -108,7 +111,7 @@
 			}
 		}
 
-		const requestDivisor = 7; // only 1 in 7 requests is successful
+		const requestDivisor = 10; // ~ 1 in 10 requests are successful
 		const date = new Date();
 
 		date.setMinutes(date.getMinutes() - 3); // images from the last 3 min are never available
@@ -142,4 +145,26 @@
 			}, 200);
 		})();
 	});
+
+	function getViewMode() {
+        return document.body.clientWidth > 1366 ? 'full'
+            : document.body.clientWidth > 600 ? 'tablet'
+            : 'mobile';
+    } 
+
+	let viewMode = 'mobile';
+	const forecastFor = document.getElementById('forecast-for');
+	const searchDiv = document.getElementById('search');
+	function restructure() {
+		if (getViewMode() != viewMode) {
+			if (viewMode == 'mobile') {
+				searchbar.parentNode.insertBefore(forecastFor, searchbar);
+			} else if (getViewMode() == 'mobile') {
+				searchDiv.parentNode.insertBefore(forecastFor, searchDiv);
+			}
+			viewMode = getViewMode();
+		}
+	};
+	restructure();
+	window.addEventListener('resize', restructure);
 })();

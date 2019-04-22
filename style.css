@@ -103,7 +103,7 @@ header {
 
 #header-mid-bottom-area {
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 	width: 100%;
 }
 
@@ -156,10 +156,7 @@ main {
 }
 
 #map {
-	clip-path: circle(40%);
 	display: none;
-	height: 550px;
-	width: 600px;
 }
 
 #map-background,
@@ -207,4 +204,66 @@ main {
 
 #title {
 	text-align: center;
+}
+
+@media screen and (min-width: 600px) { /* Tablet */
+	#arrow-down,
+	#arrow-up {
+		display: none;
+	}
+
+	#current-weather {
+		height: auto;
+	}
+
+	header {
+		height: 60vh;
+	}
+
+	#header-bottom-area {
+		flex-direction: row;
+	}
+
+	main {
+		height: 40vh;
+	}
+
+	#main-title {
+		font-size: 5vw;
+	}
+
+	#map {
+		clip-path: circle(45%);
+		display: inline;
+		height: 550px;
+		width: 600px;
+		zoom: 60%;
+	}
+
+	.next-hour {
+		flex-direction: column;
+	}
+
+	.next-hour-icon {
+		height: auto;
+		width: 70%;
+	}
+
+	#next-hours {
+		flex-direction: row;
+		width: 100vw;
+	}
+
+	#search {
+		align-self: center;
+		justify-content: space-between;
+	}
+
+	#searchbar {
+		width: 40%;
+	}
+
+	#sub-title {
+		font-size: 4vw;
+	}
 }
