@@ -147,7 +147,7 @@
 	});
 
 	function getViewMode() {
-        return document.body.clientWidth > 1366 ? 'full'
+        return document.body.clientWidth > 1024 ? 'full'
             : document.body.clientWidth > 600 ? 'tablet'
             : 'mobile';
     } 
@@ -155,6 +155,9 @@
 	let viewMode = 'mobile';
 	const forecastFor = document.getElementById('forecast-for');
 	const searchDiv = document.getElementById('search');
+	const currentWeather = document.getElementById('current-weather');
+	const currentTemp = document.getElementById('current-temp');
+	const currentWeatherIcon = document.getElementById('current-weather-icon');
 	function restructure() {
 		if (getViewMode() != viewMode) {
 			if (viewMode == 'mobile') {
@@ -162,6 +165,13 @@
 			} else if (getViewMode() == 'mobile') {
 				searchDiv.parentNode.insertBefore(forecastFor, searchDiv);
 			}
+
+			if (viewMode == 'full') {
+				currentWeather.insertBefore(currentWeatherIcon, currentWeather.firstChild);
+			} else if (getViewMode() == 'full') {
+				currentTemp.parentNode.insertBefore(currentWeatherIcon, currentTemp);
+			}
+
 			viewMode = getViewMode();
 		}
 	};

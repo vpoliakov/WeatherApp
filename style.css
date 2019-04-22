@@ -5,8 +5,8 @@
     --lighterBlue: rgb(127, 136, 203);
     --marginHor: 150px;
     --marginVert: 90px;
-    --header-font: 45pt;
-    --subheader-font: 33pt;
+    --title-font: 45pt;
+    --sub-title-font: 33pt;
     --forecast-font: 22pt;
     --search-font: 20pt;
     --submit: 16pt;
@@ -26,6 +26,10 @@
 	align-self: center;
 	margin-top: 2vh;
 	width: fit-content;
+}
+
+#arrow-up {
+	margin-bottom: 3vh;
 }
 
 body {
@@ -51,7 +55,7 @@ body {
 	text-align: center;
 }
 
-.current-time-temp-border {
+#current-time-temp-border {
 	background-color: black;
     flex: 1px 0 0;
 	height: 100%;
@@ -91,7 +95,7 @@ header {
 	font-family: "IBM Plex Sans";
 	font-weight: 500;
 	overflow: hidden;
-	padding: 8vh 5vw 3vh 5vw;
+	padding: 0 5vw;
 	width: auto;
 }
 
@@ -124,7 +128,8 @@ header {
 }
 
 .next-hour-icon {
-	height: 70%;
+    max-height: 70%;
+    max-width: 30%;
 }
 
 #next-hours {
@@ -153,6 +158,7 @@ main {
 #main-title {
 	color: white;
 	font-size: calc(10vw - 4pt);
+	margin-top: 8vh;
 }
 
 #map {
@@ -217,7 +223,7 @@ main {
 	}
 
 	header {
-		height: 60vh;
+		height: 65vh;
 	}
 
 	#header-bottom-area {
@@ -225,7 +231,7 @@ main {
 	}
 
 	main {
-		height: 40vh;
+		height: 35vh;
 	}
 
 	#main-title {
@@ -245,8 +251,8 @@ main {
 	}
 
 	.next-hour-icon {
-		height: auto;
-		width: 70%;
+		max-height: 50%;
+		max-width: 60%;
 	}
 
 	#next-hours {
@@ -265,5 +271,55 @@ main {
 
 	#sub-title {
 		font-size: 4vw;
+	}
+}
+
+@media screen and (min-width: 1024px) { /* Full view */
+	#current-time-temp-border {
+		display: none;
+	}
+
+	#current-weather-icon {
+		width: auto;
+	}
+
+	#current-weather {
+		width: 100%;
+	}
+
+	#current-time-temp-div {
+		width: 100%;
+	}
+
+	header {
+		align-items: baseline;
+	}
+
+	#header-mid-bottom-area {
+		width: 700px;
+	}
+
+	#main-title {
+		font-size: var(--title-font);
+		text-align: left;
+	}
+
+	#map {
+		display: none;
+		position: absolute;
+	}
+
+	#search {
+		align-self: initial;
+	}
+
+	#searchbar {
+		width: 55%;
+	}
+
+	#sub-title {
+		font-size: var(--sub-title-font);
+		line-height: calc(var(--sub-title-font) * 2);
+		text-align: left;
 	}
 }
