@@ -105,7 +105,7 @@
 				if (images.length > num) return;
 
 				image.style.display = images.length == 0 ? 'initial' : 'none';
-				image.style.position = 'absolute';
+				image.classList.add('map-radar');
 				images.push(image);
 
 				if (images.length == num) {
@@ -153,8 +153,8 @@
 	});
 
 	function getViewMode() {
-        return document.body.clientWidth > 1024 ? 'full'
-            : document.body.clientWidth > 600 ? 'tablet'
+        return document.body.clientWidth >= 1024 ? 'full'
+            : document.body.clientWidth >= 600 ? 'tablet'
             : 'mobile';
     } 
 
@@ -164,6 +164,8 @@
 	const currentWeather = document.getElementById('current-weather');
 	const currentTemp = document.getElementById('current-temp');
 	const currentWeatherIcon = document.getElementById('current-weather-icon');
+	const header = document.getElementsByTagName('header')[0];
+	const map = document.getElementById('map');
 
 	function restructure() {
 		if (getViewMode() != viewMode) {
@@ -175,8 +177,10 @@
 
 			if (viewMode == 'full') {
 				currentWeather.insertBefore(currentWeatherIcon, currentWeather.firstChild);
+				currentWeather.parentNode.appendChild(map);
 			} else if (getViewMode() == 'full') {
 				currentTemp.parentNode.insertBefore(currentWeatherIcon, currentTemp);
+				header.insertBefore(map, header.firstChild);
 			}
 
 			viewMode = getViewMode();

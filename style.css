@@ -35,6 +35,7 @@
 body {
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 }
 
 #current-temp {
@@ -123,7 +124,7 @@ header {
 }
 
 .next-hour-border {
-	background-color: rgb(191, 191, 191);
+	background-color: rgb(127, 127, 127);
     flex: 1px 0 0;
 }
 
@@ -153,6 +154,7 @@ main {
 	flex: auto 1 1;
     flex-direction: column;
 	height: 100vh;
+	z-index: 1;
 }
 
 #main-title {
@@ -167,8 +169,11 @@ main {
 
 #map-background,
 #map-cities,
+.map-radar,
 #map-radars {
 	position: absolute;
+	height: 100%;
+	width: auto;
 }
 
 #search {
@@ -219,7 +224,7 @@ main {
 	}
 
 	#current-weather {
-		height: auto;
+		height: 100%;
 	}
 
 	header {
@@ -228,6 +233,11 @@ main {
 
 	#header-bottom-area {
 		flex-direction: row;
+		height: 100%;
+	}
+
+	#header-mid-bottom-area {
+		height: 100%;
 	}
 
 	main {
@@ -239,11 +249,12 @@ main {
 	}
 
 	#map {
-		clip-path: circle(45%);
-		display: inline;
-		height: 550px;
-		width: 600px;
-		zoom: 60%;
+		align-self: center;
+		clip-path: circle(70%);
+		display: none;
+		height: 80%;
+		justify-content: center;
+		position: relative;
 	}
 
 	.next-hour {
@@ -266,7 +277,7 @@ main {
 	}
 
 	#searchbar {
-		width: 40%;
+		width: 45%;
 	}
 
 	#sub-title {
@@ -275,6 +286,10 @@ main {
 }
 
 @media screen and (min-width: 1024px) { /* Full view */
+	body {
+		height: 100vh;
+	}
+
 	#current-time-temp-border {
 		display: none;
 	}
@@ -293,6 +308,7 @@ main {
 
 	header {
 		align-items: baseline;
+		position: relative;
 	}
 
 	#header-mid-bottom-area {
@@ -305,8 +321,13 @@ main {
 	}
 
 	#map {
-		display: none;
+		bottom: 10%;
 		position: absolute;
+		right: 20%;
+	}
+
+	.next-hour-border {
+		margin: 5vh 0 3vh 0;
 	}
 
 	#search {
