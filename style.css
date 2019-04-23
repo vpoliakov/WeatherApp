@@ -243,6 +243,7 @@ main {
 
 	#current-weather {
 		height: 100%;
+		width: 50%;
 	}
 
 	header {
@@ -250,6 +251,7 @@ main {
 	}
 
 	#header-bottom-area {
+		display: flex;
 		flex-direction: row;
 		height: 100%;
 	}
@@ -269,10 +271,11 @@ main {
 	#map {
 		align-self: center;
 		clip-path: circle(70%);
-		display: none;
+		display: block;
 		height: 80%;
 		justify-content: center;
 		position: relative;
+		width: 50%;
 	}
 
 	.next-hour {
@@ -317,6 +320,7 @@ main {
 	}
 
 	#current-weather {
+		flex-basis: 50%;
 		width: 100%;
 	}
 
@@ -340,8 +344,11 @@ main {
 
 	#map {
 		bottom: 10%;
+		border-radius: 80%;
+		flex-basis: 50%;
 		position: absolute;
 		right: 20%;
+		display: block;
 	}
 
 	.next-hour-border {
