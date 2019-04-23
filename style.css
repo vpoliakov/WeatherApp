@@ -271,8 +271,11 @@ main {
 	#map {
 		align-self: center;
 		clip-path: circle(70%);
+<<<<<<< HEAD
 		display: block;
+=======
 		display: flex;
+>>>>>>> ba1da5e2bb614c9c49ab13cbfd8b3201582cf21f
 		height: 80%;
 		justify-content: center;
 		position: relative;
