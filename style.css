@@ -269,7 +269,7 @@ main {
 	#map {
 		align-self: center;
 		clip-path: circle(70%);
-		display: none;
+		display: flex;
 		height: 80%;
 		justify-content: center;
 		position: relative;
