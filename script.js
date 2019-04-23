@@ -177,4 +177,31 @@
 	};
 	restructure();
 	window.addEventListener('resize', restructure);
+
+	// calculates whether given coordinates fall within 150 miles of sacramento
+	function isNearSac(lat, lon) {
+		let sacLat = 38.5816;
+		let sacLon = 121.4944;
+		if ((lat == sacLat) && (lon == sacLon)) {
+			return 0;
+		}
+		else {
+			let radLat = Math.PI * lat / 180;
+			let radSacLat = Math.PI * sacLat / 180;
+			let theta = lon - sacLon;
+			let radTheta = Math.PI * theta / 180;
+			let dist = Math.sin(radLat) * Math.sin(radSacLat) + 
+					Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
+
+			if (dist > 1) {
+				dist = 1;
+			}
+
+			dist = Math.acos(dist);
+			dist = dist * 180/Math.PI;
+			dist = dist * 60 * 1.1515;
+
+			return (dist <= 150) ? true : false;
+		}
+	}
 })();
