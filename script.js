@@ -52,6 +52,7 @@
 			if ((hour < 6 || hour > 20) && ['clearsky', 'fewclouds', 'lightrain', 'rain'].includes(name)) {
 				name = name + '-night';
 			}
+
 			return `./assets/${name}.svg`;
 		}
 
@@ -99,11 +100,14 @@
 	
 			const image = new Image();
 			image.src = `http://radar.weather.gov/ridge/RadarImg/N0R/DAX/DAX_${year}${month}${day}_${hour}${minute}_N0R.gif`;
+
 			image.onload = function () {
 				if (images.length > num) return;
+
 				image.style.display = images.length == 0 ? 'initial' : 'none';
 				image.style.position = 'absolute';
 				images.push(image);
+
 				if (images.length == num) {
 					images[0].style.display = 'none';
 					callback();	
@@ -116,7 +120,7 @@
 
 		date.setMinutes(date.getMinutes() - 3); // images from the last 3 min are never available
 		for (let i = num * requestDivisor; i >= 0; i--) {
-			image = tryToGetImage(date, i);
+			image = tryToGetImage(date);
 			date.setMinutes(date.getMinutes() - 1);
 		}
 		return images;
@@ -124,8 +128,10 @@
 
 	const radars = document.getElementById('map-radars');
 	const images = [];
+
 	getImages(10, images, function () {
 		images.sort(function (a, b) { return a.src.localeCompare(b.src); });
+
 		images.forEach(function (image, index) {
 			image.id = `doppler_${index}`;
 			radars.appendChild(image);
@@ -158,6 +164,7 @@
 	const currentWeather = document.getElementById('current-weather');
 	const currentTemp = document.getElementById('current-temp');
 	const currentWeatherIcon = document.getElementById('current-weather-icon');
+
 	function restructure() {
 		if (getViewMode() != viewMode) {
 			if (viewMode == 'mobile') {
@@ -175,33 +182,29 @@
 			viewMode = getViewMode();
 		}
 	};
+
 	restructure();
 	window.addEventListener('resize', restructure);
 
-	// calculates whether given coordinates fall within 150 miles of sacramento
+	// calculates whether given coordinates are within 150 miles of Sacramento
 	function isNearSac(lat, lon) {
-		let sacLat = 38.5816;
-		let sacLon = 121.4944;
-		if ((lat == sacLat) && (lon == sacLon)) {
-			return 0;
-		}
-		else {
-			let radLat = Math.PI * lat / 180;
-			let radSacLat = Math.PI * sacLat / 180;
-			let theta = lon - sacLon;
-			let radTheta = Math.PI * theta / 180;
-			let dist = Math.sin(radLat) * Math.sin(radSacLat) + 
-					Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
+		const sacLat = 38.5816;
+		const sacLon = -121.4944;
 
-			if (dist > 1) {
-				dist = 1;
-			}
+		if (lat == sacLat && lon == sacLon) return true;
 
-			dist = Math.acos(dist);
-			dist = dist * 180/Math.PI;
-			dist = dist * 60 * 1.1515;
+		const radLat = Math.PI * lat / 180;
+		const radSacLat = Math.PI * sacLat / 180;
+		const theta = lon - sacLon;
+		const radTheta = Math.PI * theta / 180;
+		let dist = Math.sin(radLat) * Math.sin(radSacLat) +
+				Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
 
-			return (dist <= 150) ? true : false;
-		}
+		dist = Math.min(1, dist);
+		dist = Math.acos(dist);
+		dist = dist * 180 / Math.PI;
+		dist = dist * 60 * 1.1515;
+
+		return dist <= 150;
 	}
 })();
