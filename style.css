@@ -16,6 +16,24 @@
     --temp-main-font: 75pt;
 }
 
+@keyframes slideUp {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-100vh);
+	}
+}
+
+@keyframes slideDown {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(100vh);
+	}
+}
+
 * {
 	margin: 0;
 	padding: 0;
