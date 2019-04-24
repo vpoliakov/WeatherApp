@@ -152,6 +152,14 @@
 		})();
 	});
 
+	document.getElementById('arrow-up').onclick = function () {
+		document.body.style.animation = 'slideUp 1s forwards ease-in';
+	};
+
+	document.getElementById('arrow-down').onclick = function () {
+		document.body.style.animation = 'slideDown 1s forwards ease-in';
+	};
+
 	function getViewMode() {
         return document.body.clientWidth >= 1024 ? 'full'
             : document.body.clientWidth >= 600 ? 'tablet'

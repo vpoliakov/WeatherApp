@@ -19,18 +19,16 @@
 @keyframes slideUp {
 	from {
 		transform: translateY(0);
-	}
-	to {
+	} to {
 		transform: translateY(-100vh);
 	}
 }
 
 @keyframes slideDown {
 	from {
+		transform: translateY(-100vh);
+	} to {
 		transform: translateY(0);
-	}
-	to {
-		transform: translateY(100vh);
 	}
 }
 
@@ -168,6 +166,7 @@ header {
 }
 
 main {
+	background-color: white;
 	display: flex;
 	flex: auto 1 1;
     flex-direction: column;
