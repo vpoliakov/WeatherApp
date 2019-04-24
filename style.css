@@ -16,7 +16,31 @@
     --temp-main-font: 75pt;
 }
 
-@keyframes slideUp {
+@keyframes flash-green {
+	from {
+		outline-color: greenyellow;
+	} to {
+		outline-color: var(--lightBlue);
+	}
+}
+
+@keyframes flash-orange {
+	from {
+		outline-color: orange;
+	} to {
+		outline-color: var(--lightBlue);
+	}
+}
+
+@keyframes flash-red {
+	from {
+		outline-color: red;
+	} to {
+		outline-color: var(--lightBlue);
+	}
+}
+
+@keyframes slide-up {
 	from {
 		transform: translateY(0);
 	} to {
@@ -24,27 +48,11 @@
 	}
 }
 
-@keyframes slideDown {
+@keyframes slide-down {
 	from {
 		transform: translateY(-100vh);
 	} to {
 		transform: translateY(0);
-	}
-}
-
-@keyframes flashRedBorder {
-	from {
-		border: 2px solid red;
-	} to {
-		border: none;
-	}
-}
-
-@keyframes flashGreenBorder {
-	from {
-		border: 1px solid greenyellow;
-	} to {
-		border: none;
 	}
 }
 
@@ -52,6 +60,18 @@
 	margin: 0;
 	padding: 0;
 	border: none;
+}
+
+.animation-flash-green {
+	animation: flash-green 2s;
+}
+
+.animation-flash-orange {
+	animation: flash-orange 2s;
+}
+
+.animation-flash-red {
+	animation: flash-red 2s;
 }
 
 #arrow-down {
