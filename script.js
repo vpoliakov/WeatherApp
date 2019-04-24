@@ -30,6 +30,8 @@
 		xhr.send();
 	}
 
+	const searchbar = document.getElementById('searchbar');
+
 	function renderWeather(data) {
 		function formatTime(date, utcOffset = 0, compress = false) {
 			let hour = Number(date.split(' ')[1].split(':')[0]) + utcOffset;
@@ -56,6 +58,36 @@
 			return `./assets/${name}.svg`;
 		}
 
+		function isNearSac(lat, lon) {
+			const sacLat = 38.5816;
+			const sacLon = -121.4944;
+	
+			if (lat == sacLat && lon == sacLon) return true;
+	
+			const radLat = Math.PI * lat / 180;
+			const radSacLat = Math.PI * sacLat / 180;
+			const theta = lon - sacLon;
+			const radTheta = Math.PI * theta / 180;
+			let dist = Math.sin(radLat) * Math.sin(radSacLat) +
+					Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
+	
+			dist = Math.min(1, dist);
+			dist = Math.acos(dist);
+			dist = dist * 180 / Math.PI;
+			dist = dist * 60 * 1.1515;
+	
+			return dist <= 150;
+		}
+
+		searchbar.style.animation = 'none';
+
+		if (!isNearSac(data.city.coord.lat, data.city.coord.lon)) {
+			searchbar.style.animation = 'flashRedBorder 2s linear 1';
+			return;
+		}
+
+		searchbar.style.animation = 'flashGreenBorder 2s linear 1';
+
 		const utcOffset = -7;
 		const currentTime = document.getElementById('current-time');
 		const currentWeatherIcon = document.getElementById('current-weather-icon');
@@ -71,8 +103,6 @@
 			nextHour.children[2].textContent = `${data.list[i + 1].main.temp.toFixed(0)}°`;
 		}
 	}
-
-	const searchbar = document.getElementById('searchbar');
 
 	function search() {
 		const [city, state] = searchbar.value.split(',', 2).map(x => x.trim());
@@ -198,26 +228,4 @@
 
 	restructure();
 	window.addEventListener('resize', restructure);
-
-	// calculates whether given coordinates are within 150 miles of Sacramento
-	function isNearSac(lat, lon) {
-		const sacLat = 38.5816;
-		const sacLon = -121.4944;
-
-		if (lat == sacLat && lon == sacLon) return true;
-
-		const radLat = Math.PI * lat / 180;
-		const radSacLat = Math.PI * sacLat / 180;
-		const theta = lon - sacLon;
-		const radTheta = Math.PI * theta / 180;
-		let dist = Math.sin(radLat) * Math.sin(radSacLat) +
-				Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
-
-		dist = Math.min(1, dist);
-		dist = Math.acos(dist);
-		dist = dist * 180 / Math.PI;
-		dist = dist * 60 * 1.1515;
-
-		return dist <= 150;
-	}
 })();

@@ -32,6 +32,22 @@
 	}
 }
 
+@keyframes flashRedBorder {
+	from {
+		border: 2px solid red;
+	} to {
+		border: none;
+	}
+}
+
+@keyframes flashGreenBorder {
+	from {
+		border: 1px solid greenyellow;
+	} to {
+		border: none;
+	}
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -213,6 +229,7 @@ main {
 
 #searchbar {
 	background-color: var(--darkerBlue);
+	border-radius: 3px;
 	color: white;
 	font-family: "IBM Plex Sans";
 	font-size: var(--search-font);
