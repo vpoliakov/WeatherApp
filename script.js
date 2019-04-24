@@ -161,7 +161,7 @@
 	};
 
 	function getViewMode() {
-        return document.body.clientWidth >= 1024 ? 'full'
+        return document.body.clientWidth >= 1368 ? 'full'
             : document.body.clientWidth >= 600 ? 'tablet'
             : 'mobile';
     } 

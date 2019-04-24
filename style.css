@@ -184,13 +184,20 @@ main {
 	display: none;
 }
 
-#map-background,
-#map-cities,
-.map-radar,
-#map-radars {
-	position: absolute;
+#map-background {
 	height: 100%;
 	width: auto;
+}
+
+#map-cities {
+	height: 100%;
+	position: absolute;
+}
+
+.map-radar {
+	filter: blur(.5px) saturate(75%);
+	height: 100%;
+	position: absolute;
 }
 
 #search {
@@ -318,7 +325,7 @@ main {
 	}
 }
 
-@media screen and (min-width: 1024px) { /* Full view */
+@media screen and (min-width: 1368px) { /* Full view */
 	body {
 		height: 100vh;
 	}
@@ -341,6 +348,7 @@ main {
 
 	header {
 		align-items: baseline;
+		padding: 0 10vw;
 		position: relative;
 	}
 
@@ -356,7 +364,7 @@ main {
 	#map {
 		bottom: 10%;
 		position: absolute;
-		right: 20%;
+		left: calc(50vw + 200px);
 	}
 
 	.next-hour-border {
