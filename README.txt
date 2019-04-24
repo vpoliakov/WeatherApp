@@ -1,2 +1,0 @@
-Valentin Poliakov
-Aryan Maroufkhani
