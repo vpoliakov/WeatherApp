@@ -252,6 +252,7 @@ main {
 	#header-bottom-area {
 		flex-direction: row;
 		height: 100%;
+		justify-content: space-evenly;
 	}
 
 	#header-mid-bottom-area {
@@ -268,11 +269,26 @@ main {
 
 	#map {
 		align-self: center;
-		clip-path: circle(70%);
-		display: flex;
-		height: 80%;
-		justify-content: center;
+		display: inline;
 		position: relative;
+		height: 80%;
+	}
+
+	#map-background {
+		position: relative;
+		align-self: center;
+		clip-path: circle(48%);
+	}
+
+	#map-cities,
+	.map-radar {
+		align-self: center;
+		clip-path: circle(48%);
+		top: 0;
+	}
+
+	#map-radars {
+		top: 0;
 	}
 
 	.next-hour {
