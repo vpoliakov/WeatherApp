@@ -367,6 +367,10 @@ main {
 		left: calc(50vw + 200px);
 	}
 
+	.next-hour {
+		padding: 60px 0 70px 0;	
+	}
+
 	.next-hour-border {
 		margin: 5vh 0 3vh 0;
 	}
