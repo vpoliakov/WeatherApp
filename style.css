@@ -136,8 +136,10 @@ header {
 	font-family: "Saira Extra Condensed";
 	font-weight: 300;
 	flex-basis: 100%;
-	flex-direction: row;
-	justify-content: space-evenly;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 25px;
+	padding-bottom: 120px;
 	text-align: center;
 }
 
