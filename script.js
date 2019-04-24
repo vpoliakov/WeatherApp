@@ -179,6 +179,7 @@
 		if (getViewMode() != viewMode) {
 			if (viewMode == 'mobile') {
 				searchbar.parentNode.insertBefore(forecastFor, searchbar);
+				document.body.style.animation = 'none';
 			} else if (getViewMode() == 'mobile') {
 				searchDiv.parentNode.insertBefore(forecastFor, searchDiv);
 			}

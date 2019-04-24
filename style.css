@@ -200,6 +200,12 @@ main {
 	position: absolute;
 }
 
+#map-radars {
+	position: absolute;
+	height: 100%;
+	width: auto;
+}
+
 #search {
 	display: flex;
 	font-size: var(--forecast-font);
@@ -302,8 +308,8 @@ main {
 	}
 
 	.next-hour-icon {
-		max-height: 50%;
-		max-width: 60%;
+		max-height: 33%;
+		max-width: 75%;
 	}
 
 	#next-hours {
@@ -365,10 +371,6 @@ main {
 		bottom: 10%;
 		position: absolute;
 		left: calc(50vw + 200px);
-	}
-
-	.next-hour {
-		padding: 60px 0 70px 0;	
 	}
 
 	.next-hour-border {
