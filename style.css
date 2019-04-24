@@ -272,7 +272,6 @@ main {
 		align-self: center;
 		clip-path: circle(70%);
 		display: block;
-		display: flex;
 		height: 80%;
 		justify-content: center;
 		position: relative;
