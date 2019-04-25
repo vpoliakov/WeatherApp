@@ -16,7 +16,7 @@
 			const zip = parseInt(city); // check if a zip code instead of a city name was input
 			const cityId = zip ? `zip=${zip}` : `q=${city},${state},US`;
 			const key = '1ff6310d33bfcceffb6d171ded195e70'; // accounted-associated key to use the api
-			const url = `http://api.openweathermap.org/data/2.5/forecast/hourly?${cityId}&units=imperial&APPID=${key}`;
+			const url = `http://api.openweathermap.org/data/2.5/forecast?${cityId}&units=imperial&APPID=${key}`;
 			const xhr = createCORSRequest('GET', url);
 
 			if (!xhr) throw 'CORS not supported';
