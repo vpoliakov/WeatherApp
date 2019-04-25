@@ -131,8 +131,12 @@
 	search(); // search the default city before user input
 
 	// Add listeners for activating city search
-	document.getElementById('submit-button').addEventListener('click', search);
-	document.getElementById('searchbar').addEventListener('keyup', function (event) {
+	document.getElementById('submit-button').addEventListener('click', () => {
+		search();
+		searchbar.focus();
+	});
+
+	document.getElementById('searchbar').addEventListener('keyup',  (event) => {
 		if (event.keyCode == 13) search(); // search on enter
 	});
 
