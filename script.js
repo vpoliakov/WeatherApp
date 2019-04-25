@@ -79,7 +79,7 @@
 				const theta = lon - sacLon;
 				const radTheta = Math.PI * theta / 180;
 				let dist = Math.sin(radLat) * Math.sin(radSacLat) +
-						Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
+					Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
 
 				dist = Math.min(1, dist);
 				dist = Math.acos(dist);
@@ -136,7 +136,7 @@
 		searchbar.focus();
 	});
 
-	document.getElementById('searchbar').addEventListener('keyup',  (event) => {
+	document.getElementById('searchbar').addEventListener('keyup', (event) => {
 		if (event.keyCode == 13) search(); // search on enter
 	});
 
@@ -223,8 +223,8 @@
 
 		function getViewMode() {
 			return document.body.clientWidth >= 1368 ? 'full'
-					: document.body.clientWidth >= 600 ? 'tablet'
-					: 'mobile';
+				: document.body.clientWidth >= 600 ? 'tablet'
+				: 'mobile';
 		}
 
 		const forecastFor = document.getElementById('forecast-for');
