@@ -1,4 +1,4 @@
-"strict mode";
+"use strict";
 
 (function () {
 	const searchbar = document.getElementById('searchbar');
@@ -217,12 +217,11 @@
 	};
 
 	function moveLocation(lat, lon) {
-		const map = document.getElementById('map-background');
 		const loc = document.getElementById('location');
-		const minLat = 41.03;
-		const minLon = -124.43;
-		const maxLat = 35.98;
-		const maxLon = -118.93;
+		const minLat = 41.024067882190998;
+		const minLon = -124.429858037775010;
+		const maxLat = 35.9687395130505;
+		const maxLon = -118.91495436234901;
 		
 		loc.style.top = ((lat - minLat) / (maxLat - minLat)) * 100 + '%';
 		loc.style.left = ((lon - minLon) / (maxLon - minLon)) * 100 + '%';
