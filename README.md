@@ -1,5 +1,5 @@
 # WeatherApp
-View the demo: https://vpoliakov.github.io/WeatherApp
+View the demo: https://vpoliakov.github.io/WeatherApp (optimized for Chrome)
 ## What does it do?
 - Uses `openweathermap.org api` to retrieve weather data for the next 12 hours.
   - The city can be searched by city name and state (separated by a comma), just the city name, or its zip-code.
