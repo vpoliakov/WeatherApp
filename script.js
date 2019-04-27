@@ -16,7 +16,7 @@
 			const zip = parseInt(city); // check if a zip code instead of a city name was input
 			const cityId = zip ? `zip=${zip}` : `q=${city},${state},US`;
 			const key = '1ff6310d33bfcceffb6d171ded195e70'; // accounted-associated key to use the api
-			const url = `http://api.openweathermap.org/data/2.5/forecast?${cityId}&units=imperial&APPID=${key}`;
+			const url = `https://api.openweathermap.org/data/2.5/forecast?${cityId}&units=imperial&APPID=${key}`;
 			const xhr = createCORSRequest('GET', url);
 
 			if (!xhr) throw 'CORS not supported';
@@ -154,7 +154,7 @@
 			const minute = String(date.getUTCMinutes()).padStart(2, '0');
 
 			const image = new Image();
-			image.src = `http://radar.weather.gov/ridge/RadarImg/N0R/DAX/DAX_${year}${month}${day}_${hour}${minute}_N0R.gif`;
+			image.src = `https://radar.weather.gov/ridge/RadarImg/N0R/DAX/DAX_${year}${month}${day}_${hour}${minute}_N0R.gif`;
 
 			image.onload = function () {
 				if (images.length > num) return; // for extra images from extra requests
