@@ -67,7 +67,7 @@
                 return `./assets/${name}.svg`;
             }
 
-            // Returns whether the specified coords are within @maxDistance miles from Sacramento
+            // Returns whether the specified coords are within @maxDistance miles from Davis
             function isNearDavis(lat, lon, maxDistance) {
                 const davisLat = 38.557455;
                 const davisLon = -121.720868;
