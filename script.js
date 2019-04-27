@@ -79,7 +79,7 @@
                 const theta = lon - davisLon;
                 const radTheta = Math.PI * theta / 180;
                 let dist = Math.sin(radLat) * Math.sin(radSacLat) +
-                    Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
+                        Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
 
                 dist = Math.min(1, dist);
                 dist = Math.acos(dist);
@@ -89,7 +89,7 @@
                 return dist <= maxDistance;
             }
 
-            // since this app is for "local weather", filter in only local searches
+            // limit searches to the ones within the map
             if (!isNearDavis(data.city.coord.lat, data.city.coord.lon, 150)) {
                 searchbar.classList.add('animation-flash-orange');
                 return;
