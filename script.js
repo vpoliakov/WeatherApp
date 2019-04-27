@@ -68,15 +68,15 @@
 			}
 
 			// Returns whether the specified coords are within @maxDistance miles from Sacramento
-			function isNearSac(lat, lon, maxDistance) {
-				const sacLat = 38.5816;
-				const sacLon = -121.4944;
+			function isNearDavis(lat, lon, maxDistance) {
+				const davisLat = 38.557455;
+				const davisLon = -121.720868;
 
-				if (lat == sacLat && lon == sacLon) return true;
+				if (lat == davisLat && lon == davisLon) return true;
 
 				const radLat = Math.PI * lat / 180;
-				const radSacLat = Math.PI * sacLat / 180;
-				const theta = lon - sacLon;
+				const radSacLat = Math.PI * davisLat / 180;
+				const theta = lon - davisLon;
 				const radTheta = Math.PI * theta / 180;
 				let dist = Math.sin(radLat) * Math.sin(radSacLat) +
 					Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
@@ -90,12 +90,13 @@
 			}
 
 			// since this app is for "local weather", filter in only local searches
-			if (!isNearSac(data.city.coord.lat, data.city.coord.lon, 150)) {
+			if (!isNearDavis(data.city.coord.lat, data.city.coord.lon, 150)) {
 				searchbar.classList.add('animation-flash-orange');
 				return;
 			}
 
 			searchbar.classList.add('animation-flash-green');
+			moveLocation(data.city.coord.lat, data.city.coord.lon);
 
 			const utcOffset = -7;
 			const currentTime = document.getElementById('current-time');
@@ -214,6 +215,18 @@
 	document.getElementById('arrow-down').onclick = function () {
 		document.body.style.animation = 'slide-down 1s forwards ease-in';
 	};
+
+	function moveLocation(lat, lon) {
+		const map = document.getElementById('map-background');
+		const loc = document.getElementById('location');
+		const minLat = 41.03;
+		const minLon = -124.43;
+		const maxLat = 35.98;
+		const maxLon = -118.93;
+		
+		loc.style.top = ((lat - minLat) / (maxLat - minLat)) * 100 + '%';
+		loc.style.left = ((lon - minLon) / (maxLon - minLon)) * 100 + '%';
+	}
 
 	let viewMode = 'mobile';
 

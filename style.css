@@ -164,6 +164,20 @@ header {
 	width: 100%;
 }
 
+#location {
+	height: 0;
+	position: absolute;
+    width: 0;
+	z-index: 1;
+}
+
+#location-icon {
+	bottom: 0;
+	left: -15px;
+	position: absolute;
+	z-index: 1;
+}
+
 .next-hour {
 	align-items: center;
 	display: flex;
