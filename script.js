@@ -54,7 +54,7 @@
                 }
             }
 
-            function getImagePath(index) {
+            function getImagePath(index, date) {
                 const localDate = new Date(`${date} GMT+0`);
                 const hour = localDate.getHours();
 
@@ -109,12 +109,12 @@
 
             // set weather times, icons, and temperatures
             currentTime.textContent = formatTime(data.list[0].dt_txt, true);
-            currentWeatherIcon.src = getImagePath(0);
+            currentWeatherIcon.src = getImagePath(0, data.list[0].dt_txt);
             currentTemp.textContent = `${data.list[0].main.temp.toFixed(0)}°`;
 
             for (const [i, nextHour] of Array.from(document.getElementsByClassName('next-hour')).entries()) {
                 nextHour.children[0].textContent = formatTime(data.list[i + 1].dt_txt);
-                nextHour.children[1].src = getImagePath(i + 1);
+                nextHour.children[1].src = getImagePath(i + 1, data.list[i + 1].dt_txt);
                 nextHour.children[2].textContent = `${data.list[i + 1].main.temp.toFixed(0)}°`;
             }
         }
