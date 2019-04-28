@@ -40,9 +40,9 @@
 
         // @data is an object containing weather data from the openweathermap api
         function renderWeather(data) {
-            function formatTime(date, utcOffset = 0, compress = false) {
-                let hour = Number(date.split(' ')[1].split(':')[0]) + utcOffset;
-                if (hour < 0) hour += 24;
+            function formatTime(date, compress = false) {
+                const localDate = new Date(`${date} GMT+0`);
+                const hour = localDate.getHours();
 
                 const ampm = hour < 12 ? 'am' : 'pm';
                 if (hour == 0) hour = 12;
@@ -54,9 +54,9 @@
                 }
             }
 
-            function getImagePath(index, utcOffset = 0) {
-                let hour = Number(data.list[index].dt_txt.split(' ')[1].split(':')[0]) + utcOffset;
-                if (hour < 0) hour += 24;
+            function getImagePath(index) {
+                const localDate = new Date(`${date} GMT+0`);
+                const hour = localDate.getHours();
 
                 let name = data.list[index].weather[0].description.split(' ').join('');
 
@@ -98,19 +98,23 @@
             searchbar.classList.add('animation-flash-green');
             moveLocation(data.city.coord.lat, data.city.coord.lon);
 
-            const utcOffset = -7;
+            const date = new Date();
+            const currentDate = document.getElementById('current-date');
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jul', 'Jun', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            currentDate.textContent = `${months[date.getMonth()]}. ${date.getDate()}`;
+
             const currentTime = document.getElementById('current-time');
             const currentWeatherIcon = document.getElementById('current-weather-icon');
             const currentTemp = document.getElementById('current-temp');
 
             // set weather times, icons, and temperatures
-            currentTime.textContent = formatTime(data.list[0].dt_txt, utcOffset, true);
-            currentWeatherIcon.src = getImagePath(0, utcOffset);
+            currentTime.textContent = formatTime(data.list[0].dt_txt, true);
+            currentWeatherIcon.src = getImagePath(0);
             currentTemp.textContent = `${data.list[0].main.temp.toFixed(0)}°`;
 
             for (const [i, nextHour] of Array.from(document.getElementsByClassName('next-hour')).entries()) {
-                nextHour.children[0].textContent = formatTime(data.list[i + 1].dt_txt, utcOffset);
-                nextHour.children[1].src = getImagePath(i + 1, utcOffset);
+                nextHour.children[0].textContent = formatTime(data.list[i + 1].dt_txt);
+                nextHour.children[1].src = getImagePath(i + 1);
                 nextHour.children[2].textContent = `${data.list[i + 1].main.temp.toFixed(0)}°`;
             }
         }
