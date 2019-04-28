@@ -25,6 +25,7 @@ View the demo: https://vpoliakov.github.io/WeatherApp (optimized for Chrome)
   - Mobile:
 
 ![image](https://user-images.githubusercontent.com/10080683/56843220-c5ffe680-6852-11e9-8669-879e765875cf.png)
+
 which splits into two views navigable via the arrow button
 
 ![image](https://user-images.githubusercontent.com/10080683/56843234-e9c32c80-6852-11e9-8835-35d8e9a9dd36.png)
