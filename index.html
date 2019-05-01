@@ -1,86 +1,86 @@
 <!doctype HTML>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<link href="reset.css" rel="stylesheet">
-		<link href="style.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:300" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,500" rel="stylesheet">
-	</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link href="reset.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,500" rel="stylesheet">
+    </head>
 
-	<body>
-		<header>
-			<div id="title">
-				<p id="main-title">Local Weather 12 Hour Forecast</p>
-				<p id="sub-title">Northern California with Doppler radar</p>
-			</div>
-			<div id="header-mid-bottom-area">
-				<p id="forecast-for">Forecast for</p>
-				<div id="search">
-					<input id="searchbar" type="text" label="San Francisco, CA" value="San Francisco, CA">
-					<button id="submit-button">submit</button>
-				</div>
-				<div id="header-bottom-area">
-					<div id="current-weather">
-						<img id="current-weather-icon">
-						<div id="current-time-temp-div">
-							<div id="current-time-div">
-								<p id="current-time"></p>
-								<p id="current-date"></p>
-							</div>
-							<div id="current-time-temp-border"></div>
-							<p id="current-temp"></p>
-						</div>
-					</div>
-					<div id="map">
-						<div id="location">
-							<img id="location-icon" src="./assets/location.png">
-						</div>
-						<img id="map-background" src="https://radar.weather.gov/ridge/Overlays/Topo/Short/DAX_Topo_Short.jpg">
-						<img id="map-borders" src="https://radar.weather.gov/ridge/Overlays/County/Short/DAX_County_Short.gif">
-						<div id="map-radars"></div>
-						<img id="map-cities" src="https://radar.weather.gov/ridge/Overlays/Cities/Short/DAX_City_Short.gif">
-					</div>
-				</div>
-			</div>
-			<img id="arrow-up" src="./assets/arrow-up.png">
-		</header>
-		
-		<main>
-			<img id="arrow-down" src="./assets/arrow-down.png">
-			<div id="next-hours">
-				<div class="next-hour">
-					<p class="next-hour-time"></p>
-					<img class="next-hour-icon">
-					<p class="next-hour-temp"></p>
-				</div>
-				<div class="next-hour-border"></div>
-				<div class="next-hour">
-					<p class="next-hour-time"></p>
-					<img class="next-hour-icon">
-					<p class="next-hour-temp"></p>
-				</div>
-				<div class="next-hour-border"></div>
-				<div class="next-hour">
-					<p class="next-hour-time"></p>
-					<img class="next-hour-icon">
-					<p class="next-hour-temp"></p>
-				</div>
-				<div class="next-hour-border"></div>
-				<div class="next-hour">
-					<p class="next-hour-time"></p>
-					<img class="next-hour-icon">
-					<p class="next-hour-temp"></p>
-				</div>
-				<div class="next-hour-border"></div>
-				<div class="next-hour">
-					<p class="next-hour-time"></p>
-					<img class="next-hour-icon">
-					<p class="next-hour-temp"></p>
-				</div>
-			</div>
-		</main>
-	<script src="script.js"></script>
-	</body>
+    <body>
+        <header>
+            <div id="title">
+                <p id="main-title">Local Weather 12 Hour Forecast</p>
+                <p id="sub-title">Northern California with Doppler radar</p>
+            </div>
+            <div id="header-mid-bottom-area">
+                <p id="forecast-for">Forecast for</p>
+                <div id="search">
+                    <input id="searchbar" type="text" label="San Francisco, CA" value="San Francisco, CA">
+                    <button id="submit-button">submit</button>
+                </div>
+                <div id="header-bottom-area">
+                    <div id="current-weather">
+                        <img id="current-weather-icon">
+                        <div id="current-time-temp-div">
+                            <div id="current-time-div">
+                                <p id="current-time"></p>
+                                <p id="current-date"></p>
+                            </div>
+                            <div id="current-time-temp-border"></div>
+                            <p id="current-temp"></p>
+                        </div>
+                    </div>
+                    <div id="map">
+                        <div id="location">
+                            <img id="location-icon" src="./assets/location.png">
+                        </div>
+                        <img id="map-background" src="https://radar.weather.gov/ridge/Overlays/Topo/Short/DAX_Topo_Short.jpg">
+                        <img id="map-borders" src="https://radar.weather.gov/ridge/Overlays/County/Short/DAX_County_Short.gif">
+                        <div id="map-radars"></div>
+                        <img id="map-cities" src="https://radar.weather.gov/ridge/Overlays/Cities/Short/DAX_City_Short.gif">
+                    </div>
+                </div>
+            </div>
+            <img id="arrow-up" src="./assets/arrow-up.png">
+        </header>
+
+        <main>
+            <img id="arrow-down" src="./assets/arrow-down.png">
+            <div id="next-hours">
+                <div class="next-hour">
+                    <p class="next-hour-time"></p>
+                    <img class="next-hour-icon">
+                    <p class="next-hour-temp"></p>
+                </div>
+                <div class="next-hour-border"></div>
+                <div class="next-hour">
+                    <p class="next-hour-time"></p>
+                    <img class="next-hour-icon">
+                    <p class="next-hour-temp"></p>
+                </div>
+                <div class="next-hour-border"></div>
+                <div class="next-hour">
+                    <p class="next-hour-time"></p>
+                    <img class="next-hour-icon">
+                    <p class="next-hour-temp"></p>
+                </div>
+                <div class="next-hour-border"></div>
+                <div class="next-hour">
+                    <p class="next-hour-time"></p>
+                    <img class="next-hour-icon">
+                    <p class="next-hour-temp"></p>
+                </div>
+                <div class="next-hour-border"></div>
+                <div class="next-hour">
+                    <p class="next-hour-time"></p>
+                    <img class="next-hour-icon">
+                    <p class="next-hour-temp"></p>
+                </div>
+            </div>
+        </main>
+    <script src="script.js"></script>
+    </body>
 </html>
