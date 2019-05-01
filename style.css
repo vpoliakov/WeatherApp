@@ -1,19 +1,19 @@
 :root {
-    --darkBlue: rgb(98, 59, 156);
-    --darkerBlue: rgb(45, 49, 146);
-    --lightBlue: rgb(73, 138, 220);
-    --lighterBlue: rgb(127, 136, 203);
-    --marginHor: 150px;
-    --marginVert: 90px;
-    --title-font: 45pt;
-    --sub-title-font: 33pt;
-    --forecast-font: 22pt;
-    --search-font: 20pt;
-    --submit: 16pt;
-    --time-header-font: 35pt;
-    --temp-header-font: 85pt;
-    --time-main-font: 25pt;
-    --temp-main-font: 75pt;
+	--darkBlue: rgb(98, 59, 156);
+	--darkerBlue: rgb(45, 49, 146);
+	--lightBlue: rgb(73, 138, 220);
+	--lighterBlue: rgb(127, 136, 203);
+	--marginHor: 150px;
+	--marginVert: 90px;
+	--title-font: 45pt;
+	--sub-title-font: 33pt;
+	--forecast-font: 22pt;
+	--search-font: 20pt;
+	--submit: 16pt;
+	--time-header-font: 35pt;
+	--temp-header-font: 85pt;
+	--time-main-font: 25pt;
+	--temp-main-font: 75pt;
 }
 
 @keyframes flash-green {
@@ -110,7 +110,7 @@ body {
 
 #current-time-temp-border {
 	background-color: black;
-    flex: 1px 0 0;
+	flex: 1px 0 0;
 	height: 100%;
 	margin: 0 20px;
 }
@@ -144,7 +144,7 @@ header {
 	box-shadow: 0 50px 50px rgb(159, 159, 159);
 	display: flex;
 	height: 100vh;
-    flex-direction: column;
+	flex-direction: column;
 	font-family: "IBM Plex Sans";
 	font-weight: 500;
 	overflow: hidden;
@@ -166,10 +166,10 @@ header {
 
 #location {
 	height: 0;
-    left: 36.5582%;
+	left: 36.5582%;
 	position: absolute;
 	top: 64.3703%;
-    width: 0;
+	width: 0;
 	z-index: 1;
 }
 
@@ -193,12 +193,12 @@ header {
 
 .next-hour-border {
 	background-color: rgb(127, 127, 127);
-    flex: 1px 0 0;
+	flex: 1px 0 0;
 }
 
 .next-hour-icon {
-    max-height: 70%;
-    max-width: 30%;
+	max-height: 70%;
+	max-width: 30%;
 }
 
 #next-hours {
@@ -221,7 +221,7 @@ main {
 	background-color: white;
 	display: flex;
 	flex: auto 1 1;
-    flex-direction: column;
+	flex-direction: column;
 	height: 100vh;
 	z-index: 1;
 }
