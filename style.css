@@ -87,6 +87,7 @@
 body {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 #current-temp {
@@ -316,10 +317,6 @@ main {
     #arrow-down,
     #arrow-up {
         display: none;
-    }
-
-    body {
-        overflow: hidden;
     }
 
     #current-weather {
