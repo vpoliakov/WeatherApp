@@ -141,7 +141,7 @@ header {
     align-items: center;
     background: linear-gradient(var(--lightBlue), var(--darkBlue));
     box-sizing: border-box;
-    box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     display: flex;
     height: 100vh;
     flex-direction: column;
