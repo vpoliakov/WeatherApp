@@ -56,10 +56,34 @@ function search() {
         function getImagePath(index, date) {
             const localDate = new Date(`${date} GMT+0`);
             const hour = localDate.getHours();
+            const supportedNames = ['brokenclouds', 'clearsky', 'fewclouds', 'mist', 'overcastclouds',
+                    'rain', 'scatteredclouds', 'showerrain', 'snow', 'thunderstorms'];
 
             let name = data.list[index].weather[0].description.split(' ').join('');
 
-            if ((hour < 6 || hour > 20) && ['clearsky', 'fewclouds', 'lightrain', 'rain'].includes(name)) {
+            if (!supportedNames.includes(name)) {
+                const defaultNames = {
+                    ash: 'mist',
+                    clear: 'clearsky',
+                    clouds: 'brokenclouds',
+                    drizzle: 'rain',
+                    dust: 'mist',
+                    fog: 'mist',
+                    haze: 'mist',
+                    mist: 'mist',
+                    rain: 'rain',
+                    sand: 'mist',
+                    smoke: 'mist',
+                    snow: 'snow',
+                    squall: 'mist',
+                    thunderstorm: 'showerrain',
+                    tornado: 'mist'
+                };
+
+                name = defaultNames[data.list[index].weather[0].main.toLowerCase()];
+            }
+
+            if ((hour < 6 || hour > 20) && ['clearsky', 'fewclouds', 'rain'].includes(name)) {
                 name = name + '-night';
             }
 
