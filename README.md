@@ -21,6 +21,7 @@ View the demo: https://vpoliakov.github.io/WeatherApp (optimized for Chrome)
   - Full:
 ![image](https://user-images.githubusercontent.com/10080683/56843024-b97a8e80-6850-11e9-9389-f94c06fb1158.png)
   - Tablet:
+
 ![image](https://user-images.githubusercontent.com/10080683/56843281-6a822880-6853-11e9-92f8-1e37968d44f0.png)
   - Mobile:
 
