@@ -264,8 +264,8 @@ main {
 }
 
 #map-radars {
-    position: absolute;
     height: 100%;
+    position: absolute;
     width: auto;
 }
 
@@ -351,6 +351,7 @@ main {
         display: inline;
         position: relative;
         height: 80%;
+        width: fit-content;
     }
 
     #map-background {
