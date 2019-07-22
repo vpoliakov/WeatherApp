@@ -124,7 +124,7 @@ function search() {
 
         const date = new Date();
         const currentDate = document.getElementById('current-date');
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jul', 'Jun', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jul', 'Jun', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         currentDate.textContent = `${months[date.getMonth()]}. ${date.getDate()}`;
 
         const currentTime = document.getElementById('current-time');
