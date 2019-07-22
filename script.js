@@ -99,11 +99,11 @@ function search() {
             if (lat == davisLat && lon == davisLon) return true;
 
             const radLat = Math.PI * lat / 180;
-            const radSacLat = Math.PI * davisLat / 180;
+            const radDavisLat = Math.PI * davisLat / 180;
             const theta = lon - davisLon;
             const radTheta = Math.PI * theta / 180;
-            let dist = Math.sin(radLat) * Math.sin(radSacLat) +
-                    Math.cos(radLat) * Math.cos(radSacLat) * Math.cos(radTheta);
+            let dist = Math.sin(radLat) * Math.sin(radDavisLat) +
+                    Math.cos(radLat) * Math.cos(radDavisLat) * Math.cos(radTheta);
 
             dist = Math.min(1, dist);
             dist = Math.acos(dist);
